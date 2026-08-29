@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Transaction = require("./models/Transaction");
 
-mongoose.connect("mongodb+srv://mansiy265_db_user:FVn5p9dVUe97b3qE@cluster0.rgq50bc.mongodb.net/financialCrimeDB?retryWrites=true&w=majority&appName=Cluster0");
+mongoose.connect("mongodb+srv://mansiy265_db_user:gplfFgcxYX7oaCml@cluster0.rgq50bc.mongodb.net/financialCrimeDB?retryWrites=true&w=majority&appName=Cluster0");
 
 const names = [
   "Alice",
