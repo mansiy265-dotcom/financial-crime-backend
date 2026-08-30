@@ -1,7 +1,8 @@
+
+require("dotenv").config();
 const mongoose = require("mongoose");
 const Transaction = require("./models/Transaction");
 
-mongoose.connect("mongodb+srv://mansiy265_db_user:gplfFgcxYX7oaCml@cluster0.rgq50bc.mongodb.net/financialCrimeDB?retryWrites=true&w=majority&appName=Cluster0");
 
 const names = [
   "Alice",
@@ -15,6 +16,11 @@ const names = [
 ];
 
 async function seedData() {
+ await mongoose.connect(process.env.MONGO_URI);
+
+console.log("Mongo Connected");
+console.log("DB Name:", mongoose.connection.name);
+console.log("State:", mongoose.connection.readyState);
   const transactions = [];
 
   for (let i = 1; i <= 100; i++) {
@@ -25,11 +31,17 @@ async function seedData() {
       receiver: names[Math.floor(Math.random() * names.length)],
     });
   }
+  console.log("About to insert:", transactions.length);
 
-  await Transaction.insertMany(transactions);
+  try {
+    const result = await Transaction.insertMany(transactions);
 
-  console.log("100 transactions inserted");
-  process.exit();
+    console.log("INSERT SUCCESS");
+    console.log(result.length);
+  } catch (err) {
+    console.error("INSERT ERROR:");
+    console.error(err);
+  }
 }
 
 seedData();
