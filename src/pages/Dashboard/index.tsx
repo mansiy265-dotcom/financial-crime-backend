@@ -6,7 +6,8 @@ import {
   ShieldAlert, 
   TrendingUp, 
   ArrowRight,
-  RefreshCw
+  RefreshCw,
+  ChevronDown
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/Card';
 import { Badge } from '../../components/ui/Badge';
