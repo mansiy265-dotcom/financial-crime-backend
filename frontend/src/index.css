@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-slate-850: #e6e2d8;
+  --color-slate-900: #f5f4ef;
+  
+  /* Risk Levels */
+  --color-risk-low: #10b981;
+  --color-risk-medium: #f59e0b;
+  --color-risk-high: #f97316;
+  --color-risk-critical: #ef4444;
+}
+
+@layer base {
+  :root {
+    --background: 40 40% 98%; /* warm ivory #fdfbf7 */
+    --foreground: 25 29% 18%; /* deep brown #3b2b20 */
+    --card: 0 0% 100%;
+    --card-foreground: 25 29% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 29% 18%;
+    --primary: 25 33% 22%; /* #4a3525 */
+    --primary-foreground: 40 40% 98%;
+    --secondary: 44 26% 95%; /* #f5f4ef */
+    --secondary-foreground: 25 29% 18%;
+    --muted: 44 26% 95%;
+    --muted-foreground: 27 16% 45%; /* #6b584b */
+    --accent: 42 33% 91%; /* #e8e4db */
+    --accent-foreground: 25 29% 18%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 41 23% 87%; /* #e6e2d8 */
+    --input: 41 23% 87%;
+    --ring: 25 29% 18%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-[#fdfbf7] text-[#3b2b20];
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-[#e6e2d8] rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#d4cec3];
+}
+
+/* React Flow custom node styles */
+.react-flow__node {
+  @apply rounded-xl;
+}
+.react-flow__pane {
+  @apply bg-[#fdfbf7]/50;
+}
